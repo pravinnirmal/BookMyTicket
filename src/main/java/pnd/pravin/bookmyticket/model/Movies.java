@@ -13,7 +13,8 @@ import lombok.*;
 public class Movies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
-    public String movieName;
-    public String startTime;
+    private Long id;
+    private String movieName;
+    private String startTime;
+    private String language;
 }

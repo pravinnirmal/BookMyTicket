@@ -24,14 +24,16 @@ public class MoviesService {
                .map(movies -> new MoviesResponse(
                        movies.getId(),
                        movies.getMovieName(),
-                       movies.getStartTime()
+                       movies.getStartTime(),
+                       movies.getLanguage()
                )).toList();
     }
 
     public boolean addMovie(@Valid MoviesRequest moviesRequest) {
          moviesRepo.save(Movies.builder()
                 .movieName(moviesRequest.movieName())
-                .startTime(moviesRequest.startTime()).build());
+                .startTime(moviesRequest.startTime())
+                 .language(moviesRequest.language()).build());
 
         return true;
     }
