@@ -3,6 +3,9 @@ package pnd.pravin.bookmyticket.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Map;
+
+
 @Entity
 @Getter
 @Setter
@@ -17,4 +20,6 @@ public class Movies {
     private String movieName;
     private String startTime;
     private String language;
+    @Transient
+    private Map<String, String> shows;
 }
