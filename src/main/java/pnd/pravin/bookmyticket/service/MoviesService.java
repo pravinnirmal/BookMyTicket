@@ -1,6 +1,5 @@
 package pnd.pravin.bookmyticket.service;
 
-import jakarta.persistence.Transient;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,6 @@ import pnd.pravin.bookmyticket.dto.response.MoviesResponse;
 import pnd.pravin.bookmyticket.exception.MovieNotFoundException;
 import pnd.pravin.bookmyticket.model.Movies;
 import pnd.pravin.bookmyticket.repository.MoviesRepo;
-import pnd.pravin.bookmyticket.repository.SeatsRepo;
 
 import java.util.List;
 import java.util.Map;
@@ -57,6 +55,7 @@ public class MoviesService {
                         throw new MovieNotFoundException("Unable to find movie with id " + id);
         }
            moviesRepo.deleteById(id);
+        seatsService.deleteSeatsForDeletedShow((long) id);
 
     }
 }

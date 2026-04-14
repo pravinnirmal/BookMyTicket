@@ -23,6 +23,11 @@ public class SeatsService {
                 seatsRepo.save(seat);
             }
         }
-
     }
+
+        public void deleteSeatsForDeletedShow(Long showId) {
+            seatsRepo.deleteSeatsByShowId(showId);
+        }
+
+
 }
