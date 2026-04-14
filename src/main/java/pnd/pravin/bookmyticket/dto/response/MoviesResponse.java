@@ -1,4 +1,4 @@
-package pnd.pravin.bookmyticket.dto;
+package pnd.pravin.bookmyticket.dto.response;
 
 import lombok.Builder;
 

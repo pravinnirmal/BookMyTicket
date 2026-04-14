@@ -4,8 +4,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pnd.pravin.bookmyticket.dto.MoviesRequest;
-import pnd.pravin.bookmyticket.dto.MoviesResponse;
+import pnd.pravin.bookmyticket.dto.request.MoviesRequest;
+import pnd.pravin.bookmyticket.dto.response.MoviesResponse;
 import pnd.pravin.bookmyticket.service.MoviesService;
 
 import java.util.List;
