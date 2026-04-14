@@ -2,9 +2,15 @@ package pnd.pravin.bookmyticket.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pnd.pravin.bookmyticket.dto.response.AvailableSeats;
+import pnd.pravin.bookmyticket.dto.response.SeatTotal;
+import pnd.pravin.bookmyticket.dto.response.SeatsResponse;
 import pnd.pravin.bookmyticket.model.Seats;
 import pnd.pravin.bookmyticket.repository.SeatsRepo;
 import pnd.pravin.bookmyticket.util.SeatConstants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class SeatsService {
@@ -27,6 +33,18 @@ public class SeatsService {
 
         public void deleteSeatsForDeletedShow(Long showId) {
             seatsRepo.deleteSeatsByShowId(showId);
+        }
+
+        public SeatsResponse getSeatsForShow(Long showId) {
+            List <AvailableSeats> availableSeats= seatsRepo.getSeatsByShowId(showId);
+            SeatTotal seatTotalCount = SeatTotal.builder()
+                    .totalSeats(seatsRepo.countByShowIdAndIsBookedFalse(showId))
+                    .build();
+
+            return SeatsResponse.builder()
+                    .availableSeats(availableSeats)
+                    .seatTotal(seatTotalCount)
+                    .build();
         }
 
 

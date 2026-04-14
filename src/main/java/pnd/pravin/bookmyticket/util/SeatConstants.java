@@ -16,5 +16,8 @@ public class SeatConstants {
 
     public static final List<String> ROW =Arrays.asList(ROW_A, ROW_B, ROW_C, ROW_D, ROW_E, ROW_F, ROW_G, ROW_H);
 
+    /**
+     * No of seats per row
+     */
     public static final int SEATS = 10;
 }
