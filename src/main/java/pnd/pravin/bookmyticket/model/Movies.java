@@ -22,4 +22,5 @@ public class Movies {
     private String language;
     @Transient
     private Map<String, String> shows;
+    private Long price;
 }

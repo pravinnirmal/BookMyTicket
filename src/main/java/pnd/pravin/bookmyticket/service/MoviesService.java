@@ -30,7 +30,8 @@ public class MoviesService {
                        movies.getId(),
                        movies.getMovieName(),
                        movies.getStartTime(),
-                       movies.getLanguage()
+                       movies.getLanguage(),
+                       movies.getPrice()
                )).toList();
     }
 

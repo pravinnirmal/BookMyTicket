@@ -9,7 +9,6 @@ import pnd.pravin.bookmyticket.model.Seats;
 import pnd.pravin.bookmyticket.repository.SeatsRepo;
 import pnd.pravin.bookmyticket.util.SeatConstants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -36,7 +35,7 @@ public class SeatsService {
         }
 
         public SeatsResponse getSeatsForShow(Long showId) {
-            List <AvailableSeats> availableSeats= seatsRepo.getSeatsByShowId(showId);
+            List <AvailableSeats> availableSeats= seatsRepo.getAvailableSeatsByShowIdAndIsBookedFalse(showId);
             SeatTotal seatTotalCount = SeatTotal.builder()
                     .totalSeats(seatsRepo.countByShowIdAndIsBookedFalse(showId))
                     .build();
